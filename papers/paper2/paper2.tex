@@ -1,0 +1,32 @@
+\documentclass{standalone}
+
+
+\begin{document}
+\author{
+  Auhtor 1
+  \and
+  Author 5
+  \and
+  Auhtor 6}
+\title{Title of paper 2}
+
+\maketitle
+
+\label{pap:paper2}
+\begin{abstract}
+\lipsum[6-7]
+\end{abstract}
+
+\lipsum[6-7]
+
+% insert tex of paper here
+
+%this prints the bibliography for all the references in the paper (so from last printbibliography to this one)
+\printbibliography[segment=\therefsegment,heading=subbibliography]
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../main"
+%%% TeX-engine: xetex
+%%% End:

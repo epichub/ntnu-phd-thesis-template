@@ -1,0 +1,47 @@
+\documentclass{standalone}
+
+
+\begin{document}
+\author{
+  Auhtor 1
+  \and
+  Author 2
+  \and
+  Auhtor 3}
+\title{Title of paper1}
+
+\maketitle
+
+\label{pap:paper1}
+\begin{abstract}
+\lipsum[6-7]
+\end{abstract}
+
+\lipsum[6-7]
+
+
+% insert tex of paper here
+
+Example of citations
+\cite{Mathisen2019,schank1983dynamic}
+
+
+% example of how to insert figures
+% figure paths has to be from the same base path as main.tex so put figures in the figures folder in the same folder as main.tex
+% typically it is smart to organise figures from different paper in different subfolders like figures/paper1 etc..
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{figures/paper1/NTNUlogo.pdf} %
+\caption{The NTNU logo!}
+\end{figure}
+
+
+%this prints the bibliography for all the references in the paper (so from last printbibliography to this one)
+\printbibliography[segment=\therefsegment,heading=subbibliography]
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../main"
+%%% TeX-engine: xetex
+%%% End:

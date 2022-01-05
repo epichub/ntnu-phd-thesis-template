@@ -1,0 +1,130 @@
+% this template is based on https://www.mn.uio.no/english/research/phd/thesis-adjudication/layout/latex-template.html
+% and in lesser degree https://github.com/COPCSE-NTNU/thesis-NTNU
+% general info about publishing phd thesis: https://i.ntnu.no/wiki/-/wiki/Norsk/Levere+doktorgradsavhandling
+% getting isbn/issn for ntnu https://innsida.ntnu.no/isbnice/
+\documentclass[colophon, english]{phdntnu}
+\usepackage{lipsum} %for the template
+% for help see
+% https://www.mn.uio.no/english/research/phd/thesis-adjudication/layout/latex-template.html
+\usepackage{phdstyle}   % Custom style
+%\usepackage[Bjornstrup]{fncychap}
+\usepackage{float}
+\usepackage{subcaption}
+%\usepackage{geometry}
+\usepackage[ruled]{algorithm2e}
+\usepackage{academicons}
+\usepackage{tcolorbox}
+%\usepackage[inline]{enumitem}
+%\usepackage{longtable,tabu}
+%\usepackage[pdfusetitle]{hyperref}
+%\usepackage[utf8]{inputenc}
+%\usepackage[combine]{ucs}
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+% \usepackage[width=1cm, height=1.2cm, eventxtindent=5pt, oddtxtexdent=5pt]{thumbs}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\newcommand{\tikzmark}[1]{\tikz[overlay, remember picture] \node[coordinate]
+  (#1) {};}
+\usepackage[b5paper, left=35mm, right=35mm, bottom=35mm, top=30mm]{geometry}
+%\DeclareUnicodeCharacter{0301}{XXXXX}
+
+
+\author{Thesis Author Name}
+\title{Thesis title}
+\def \thesisAuthor{Thesis Author Name}
+\degreetype{PhD}
+\subtitle{Thesis subtitle}
+\department{Department of Computer and Information Science}
+\faculty{Faculty of information technology, mathematics and electrical
+  engineering}
+\isbnprinted{}
+% getting isbn/issn for ntnu https://innsida.ntnu.no/isbnice/
+\isbnelectronic{}
+\serialnumber{}
+\setyear{2021}
+\setmonth{July}
+% \affiliation
+% {
+%     Optional Second Affiliation
+%     \and
+%     Optional Further Specification
+% }
+\ISSN{1234-5678}
+\dissertationseries{1234}
+
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{
+      \step[fieldset=publisher, null]
+    }
+  }
+}
+%this is the main part - where we include all subparts of thesis
+\begin{document}
+
+    \frontmatter        % Folios in Roman numerals, unnumbered chapters.
+    % this helps us get one bibliography for the whole intro of the thesis, aka kappa
+    \begin{refsegment}
+    %\begin{refsegment}
+    \include{sections/0-1-dedication}
+    \include{sections/0-2-abstract}
+    \include{sections/0-3-preface}
+    \include{sections/0-4-papers}
+
+    \cleartorecto
+    \tableofcontents    % Or \tableofcontents*
+    %\cleartorecto
+    %list of figures if you want
+    %\listoffigures      % Or \listoffigures*
+    %\cleartorecto
+    %list of tables if you want
+    %\listoftables       % Or \listoftables*
+
+    \mainmatter         % Folios in Arabic numerals, numbered chapters.
+
+    %BTW how you structure this is up to each author and the content of the phd project, some people need related work, some do not
+    \include{sections/1-1-introduction}
+    \include{sections/1-2-background}
+    \include{sections/1-3-relatedwork}
+    \include{sections/1-4-summary}
+    \include{sections/1-5-conclusion}
+    % generate the bibliography for the kappa
+    \newpage
+    \printbibliography[segment=\therefsegment,heading=subbibliography]
+    \end{refsegment}
+    
+    % here we include the papers as tex.
+    %\newrefsegment
+    \paper              % "Chapter" is from henceforth renamed "Paper"
+    \setcounter{chapter}{1}
+    \setcounter{section}{0}
+    \paperpage          % Similar to \part*{Papers}, but appears in TOC
+    \numberofpapers{4}  % Specify size of thumb indices
+    \begin{refsegment}
+      \include{papers/paper1/paper1} %referring to papers/paper1/paper1.tex
+    \end{refsegment}
+    \setcounter{chapter}{2}
+    \setcounter{section}{0}
+    \begin{refsegment}
+      \include{papers/paper2/paper2} %referring to papers/paper2/paper2.tex
+    \end{refsegment}
+    \appendix           % "Chapter" is renamed "Appendix"
+    \appendixpage       % Similar to \part*{Appendices}, but appears in TOC
+    \setcounter{chapter}{1}
+    \setcounter{section}{0}
+    \begin{refsegment}
+      \include{papers/auxpaper1/auxpaper1}
+    \end{refsegment}
+    \setcounter{chapter}{2}
+    \setcounter{section}{0}
+    \begin{refsegment}
+      \include{papers/auxpaper2/auxpaper2}
+    \end{refsegment}
+    
+  \end{document}
+% emacs latex metadata
+%%% Local Variables: 
+%%% coding: utf-8
+%%% mode: latex
+%%% TeX-engine: xetex
+%%% TeX-master: t
+%%% End:

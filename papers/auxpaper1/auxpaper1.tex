@@ -1,0 +1,28 @@
+% Created 2020-03-10 Tue 20:26
+% Intended LaTeX compiler: pdflatex
+\documentclass{standalone}
+
+
+\begin{document}
+\author{
+  Author1
+  \and
+  Author6}
+\title{Auxpaper1}
+\maketitle
+
+\label{pap:auxpaper1}
+\begin{abstract}
+  \lipsum[6-7]
+\end{abstract}
+\startcontents[chapters]
+\lipsum[30-32]
+
+\printbibliography[segment=\therefsegment,heading=subbibliography]
+\stopcontents[chapters]
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../../main"
+%%% End:
